@@ -1,6 +1,5 @@
 import java.awt.*;
 import java.awt.event.*;
-import java.nio.channels.Pipe;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.*;
@@ -125,7 +124,7 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener {
     public void draw(Graphics g) {
         g.drawImage(backgroundIMG, 0, 0, this.boardWidth, this.boardHeight, null);
         g.drawImage(birdIMG, bird.x, bird.y, bird.width, bird.height, null);
-        for (int i = 0; i < pipes.size(); i++) {
+                                                                                                                                                            for (int i = 0; i < pipes.size(); i++) {
             Pipe pipe = pipes.get(i);
             g.drawImage(pipe.img, pipe.x, pipe.y, pipe.width, pipe.height, null);
         }
@@ -142,7 +141,7 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener {
     public void move() {
         velocityY += gravity;
         bird.y += velocityY;
-        birdY = Math.max(bird.y, 0);
+        bird.y = Math.max(bird.y, 0);
 
         for (int i = 0; i < pipes.size(); i++) {
             Pipe pipe = pipes.get(i);
